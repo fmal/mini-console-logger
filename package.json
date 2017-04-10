@@ -1,0 +1,76 @@
+{
+  "name": "mini-console-logger",
+  "version": "0.0.0-development",
+  "description": "Simple logging utility",
+  "main": "dist/mini-console-logger.cjs.js",
+  "jsnext:main": "dist/mini-console-logger.es.js",
+  "module": "dist/mini-console-logger.es.js",
+  "repository": "https://github.com/fmal/mini-console-logger.git",
+  "keywords": [
+    "logger",
+    "log",
+    "utility"
+  ],
+  "author": "Filip Malinowski <filip@fmal.me>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "format": "prettier --single-quote --write \"src/**/*.js\" rollup.config.js",
+    "format:check": "prettier --single-quote --list-different \"src/**/*.js\" rollup.config.js",
+    "prebuild:lib": "rimraf lib",
+    "build:lib": "babel --out-dir lib --ignore __tests__ src",
+    "build:watch": "npm run build:lib -- --watch",
+    "prebuild:dist": "rimraf dist",
+    "build:dist": "rollup -c && rollup -c --sourcemap --environment PRODUCTION",
+    "build": "npm run build:lib && npm run build:dist",
+    "prepush": "npm test",
+    "prepublish": "npm run build",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "commitmsg": "validate-commit-msg",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "husky": "^0.13.3",
+    "jest": "^19.0.2",
+    "lint-staged": "^3.4.0",
+    "prettier": "^0.22.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "semantic-release": "^6.3.2",
+    "validate-commit-msg": "^2.12.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "roots": [
+      "src"
+    ],
+    "coverageReporters": [
+      "text-summary"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
