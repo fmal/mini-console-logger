@@ -43,7 +43,8 @@ export default {
             modules: false
           }
         ]
-      ].concat(babelRc.presets.slice(1))
+      ].concat(babelRc.presets.slice(1)),
+      plugins: babelRc.plugins
     }),
     prod ? uglify({ compress: { warnings: false } }) : null
   ].filter(Boolean)
