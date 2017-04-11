@@ -22,7 +22,7 @@ const targets = prod
 export default {
   entry: 'src/index.js',
   targets,
-  moduleName: 'MiniConsoleLogger',
+  moduleName: 'miniConsoleLogger',
   exports: 'named',
   plugins: [
     nodeResolve(),
