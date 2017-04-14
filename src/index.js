@@ -1,13 +1,10 @@
 const LEVELS = ['trace', 'debug', 'info', 'warn', 'error'];
 
 export const LOG_LEVELS = Object.freeze(
-  LEVELS.reduce(
-    (acc, lvl) => {
-      acc[lvl.toUpperCase()] = lvl;
-      return acc;
-    },
-    {}
-  )
+  LEVELS.reduce((acc, lvl) => {
+    acc[lvl.toUpperCase()] = lvl;
+    return acc;
+  }, {})
 );
 
 let instance;
@@ -123,9 +120,11 @@ LEVELS.forEach(level => {
 });
 
 function isPlainObject(obj) {
-  return typeof obj === 'object' &&
+  return (
+    typeof obj === 'object' &&
     obj !== null &&
-    (obj.constructor === Object || Object.getPrototypeOf(obj) === null);
+    (obj.constructor === Object || Object.getPrototypeOf(obj) === null)
+  );
 }
 
 export default Logger.getInstance();
