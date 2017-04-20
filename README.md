@@ -37,7 +37,7 @@ logger.level = null; // silence logger
 logger.level = LOG_LEVELS.WARN; // log only warn and above
 
 logger.on(LOG_LEVELS.ERROR, err => {
-  // so something with the error
+  // do something with the error
 });
 logger.off(LOG_LEVELS.ERROR); // unbind error listener
 ```
