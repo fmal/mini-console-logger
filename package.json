@@ -42,7 +42,7 @@
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "husky": "^0.13.3",
-    "jest": "^19.0.2",
+    "jest": "^21.0.0",
     "lint-staged": "^3.4.0",
     "prettier": "^1.1.0",
     "rimraf": "^2.6.1",
