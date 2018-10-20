@@ -52,7 +52,7 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "^1.0.1",
-    "semantic-release": "^6.3.2",
+    "semantic-release": "^15.10.4",
     "validate-commit-msg": "^2.12.1"
   },
   "lint-staged": {
